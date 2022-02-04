@@ -1,20 +1,16 @@
-from pythonosc import udp_client
-from pythonosc.osc_message_builder import OscMessageBuilder
+from OscClientWrapper import OscClient
 
 
 def main():
-    ip = '127.0.0.1'
-    port = 6700
+    # OscClient
+    oscClient = OscClient.OscClient('127.0.0.1', 6700, '/address')
+    oscClient.addMessage('abc')
+    oscClient.build()
+    oscClient.send()
 
-    client = udp_client.UDPClient(ip, port)
-
-    args = [0, 228, 122]
-    data = OscMessageBuilder(address='/address')
-    data.add_arg(args)
-    data = data.build()
-
-    client.send(data)
-
+    # OscSimpleClient
+    oscClient = OscClient.OscSimpleClient('127.0.0.1', 6700, '/address')
+    oscClient.send('def')
 
 if __name__ == '__main__':
     main()
