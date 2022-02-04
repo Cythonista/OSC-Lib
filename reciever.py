@@ -1,21 +1,22 @@
-import time
-from pythonosc import osc_server
-from pythonosc.dispatcher import Dispatcher
+from OscServerWrapper import OscServer
 
-def handler(none, args):
-    print('{} {} {} {}'.format(none, args[0], args[1], args[2]))
 
 def main():
-    ip = '127.0.0.1'
-    port = 6700
+    # OscBlockingServer
+    # oscServer = OscServer.OscBlockingServer('127.0.0.1', 6700, '/address')
+    # oscServer.startServer()
+    # oscServer.stopServer()
 
-    # URLにコールバック関数を割り当てる
-    dispatcher = Dispatcher()
-    dispatcher.map('/address', handler)
-    # サーバを起動する
-    server = osc_server.ThreadingOSCUDPServer((ip, port), dispatcher)
-    print('Server Start IP={} PORT={}'.format(ip, port))
-    server.serve_forever()
+    # OscThreadingServer
+    # oscServer = OscServer.OscThreadingServer('127.0.0.1', 6700, '/address')
+    # oscServer.startThread()
+    # oscServer.stopThread()
+
+    # OscThreadingServer
+    # oscServer = OscServer.OscForkingServer('127.0.0.1', 6700, '/address')
+    # oscServer.startThread()
+    # oscServer.wait(5)
+    # oscServer.stopThread()
 
 
 if __name__ == '__main__':
