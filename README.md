@@ -1,6 +1,10 @@
 # OSC-Lib
 
 OSC通信研究用リポジトリ
+以下を実行して利用
+```
+pip install python-osc
+```
 
 ```
 OscClientWrapper
