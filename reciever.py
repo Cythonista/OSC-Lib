@@ -5,9 +5,9 @@ from OscServerWrapper.OscServer import OscForkingServer
 
 def main():
     # OscBlockingServer
-    oscServer = OscBlockingServer('127.0.0.1', 6700, '/address')
-    oscServer.startServer()
-    oscServer.stopServer()
+    # oscServer = OscBlockingServer('127.0.0.1', 6700, '/address')
+    # oscServer.startServer()
+    # oscServer.stopServer()
 
     # OscThreadingServer
     # oscServer = OscThreadingServer('127.0.0.1', 6700, '/address')

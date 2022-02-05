@@ -22,8 +22,7 @@ OscServerWrapper
 |   ├── OscServerBase      # 基底クラス
 |   ├── OscBlockingServer  # プログラムをブロックする半永久的なサーバ
 |   ├── OscThreadingServer # マルチスレッドな状態のサーバ
-|   ├── OscForkingServer
-|   └── OscAsyncServer
+|   └── OscForkingServer   # 重たい処理用
 |
 └── reciever.py            # サーバ利用プログラム
 ```

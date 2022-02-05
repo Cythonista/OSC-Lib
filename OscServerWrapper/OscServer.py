@@ -1,10 +1,10 @@
 from time import sleep
+from asyncio import get_event_loop
 from threading import Thread
 from pythonosc.dispatcher import Dispatcher
 from pythonosc.osc_server import BlockingOSCUDPServer
 from pythonosc.osc_server import ThreadingOSCUDPServer
 from pythonosc.osc_server import ForkingOSCUDPServer
-from pythonosc.osc_server import AsyncIOOSCUDPServer
 
 class OscServerBase(object):
     def __init__(self, ip = None, port = None, address = None):
@@ -62,7 +62,3 @@ class OscForkingServer(OscServerBase):
 
     def stopThread(self):
         self.server.shutdown()
-
-class OscAsyncServer(OscServerBase):
-    def __init__(self, ip = None, port = None):
-        super().__init__(ip, port)
